@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 17:50:32 by user42            #+#    #+#             */
-/*   Updated: 2021/10/03 16:41:32 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/04 13:53:30 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,22 @@
 
 void	ft_free2(t_recup *recup)
 {
-	mlx_destroy_image(recup->data.mlx_ptr, recup->data.window_img);
-	mlx_destroy_image(recup->data.mlx_ptr, recup->data.floor_img);
-	mlx_destroy_image(recup->data.mlx_ptr, recup->data.wall_img);
-	mlx_destroy_image(recup->data.mlx_ptr, recup->data.character_img);
-	mlx_destroy_image(recup->data.mlx_ptr, recup->data.coll_img);
-	mlx_destroy_image(recup->data.mlx_ptr, recup->data.exit_img);
-	mlx_destroy_display(recup->data.mlx_ptr);
-	free(recup->data.mlx_ptr);
+	if (recup->data.window_img)
+		mlx_destroy_image(recup->data.mlx_ptr, recup->data.window_img);
+	if (recup->data.floor_img)
+		mlx_destroy_image(recup->data.mlx_ptr, recup->data.floor_img);
+	if (recup->data.wall_img)
+		mlx_destroy_image(recup->data.mlx_ptr, recup->data.wall_img);
+	if (recup->data.character_img)
+		mlx_destroy_image(recup->data.mlx_ptr, recup->data.character_img);
+	if (recup->data.coll_img)
+		mlx_destroy_image(recup->data.mlx_ptr, recup->data.coll_img);
+	if (recup->data.exit_img)
+		mlx_destroy_image(recup->data.mlx_ptr, recup->data.exit_img);
+	if (recup->data.mlx_ptr)
+		mlx_destroy_display(recup->data.mlx_ptr);
+	if (recup->data.mlx_ptr)
+		free(recup->data.mlx_ptr);
 }
 
 void	ft_free(t_recup *recup)
