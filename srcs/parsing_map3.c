@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 13:50:51 by user42            #+#    #+#             */
-/*   Updated: 2021/10/01 16:29:23 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/04 19:33:36 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,20 +82,6 @@ int	ft_rectangular(t_recup *recup)
 			j++;
 		}
 		if (size != recup->sizeline)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	ft_emptyline(t_recup *recup)
-{
-	int	i;
-
-	i = 0;
-	while (i < recup->nblines)
-	{
-		if (recup->map[i][0] == '\0')
 			return (1);
 		i++;
 	}

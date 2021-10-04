@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 12:13:31 by user42            #+#    #+#             */
-/*   Updated: 2021/10/04 13:52:16 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/04 19:39:15 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,12 @@ void	parsing(t_recup *recup, char *fichier)
 		ret = get_next_line(fd, &str);
 		if (ret == -1)
 			ft_error(recup, "Error\nProblem with GNL\n");
-		ft_map(recup, str);
+		if (ret != 0)
+			ft_map(recup, str);
 		free(str);
 	}
 	close(fd);
+	ft_parsing_errors(recup);
 	if (recup->sizeline == 0 || recup->nblines == 0)
 		ft_error(recup, "Error\nNo Map\n");
 	ft_parsing_map(recup, fichier);

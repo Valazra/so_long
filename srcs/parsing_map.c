@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 17:51:21 by user42            #+#    #+#             */
-/*   Updated: 2021/10/01 16:29:15 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/04 19:35:22 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ int	ft_depart(t_recup *recup, char c, int i, int j)
 	if (c == 'P')
 	{
 		if (recup->depart != 'x')
-			ft_error(recup, "Error\nNot only one depart position\n");
-		recup->depart = c;
+			recup->depart = 'B';
+		else
+			recup->depart = c;
 		recup->coord_depart.x = i;
 		recup->coord_depart.y = j;
 		return (1);
@@ -64,10 +65,7 @@ int	ft_is_map(t_recup *recup, char *str)
 		{
 			if (str[i] != '0' && str[i] != '1' && str[i] != 'C'\
 		&& str[i] != 'E' && str[i] != 'P' && str[i] != '\n')
-			{
-				ft_error(recup, "Error\nBad character in the map\n");
-				return (0);
-			}
+				recup->wrong_charac = 'B';
 			if (str[i] == 'C')
 				recup->nbr_coll++;
 			if (str[i] == 'E')
@@ -83,16 +81,22 @@ void	ft_map(t_recup *recup, char *str)
 {
 	int			i;
 	static int	snblines = 0;
-	static int	ssizeline = 0;
+	static int	ssizeline = -1;
 
 	i = 0;
+	if (str[0] == '\0')
+		recup->empty_line = 1;
 	if (ft_is_map(recup, str) == 1)
 	{
 		i = ft_strlen(str);
-		if (i > ssizeline)
+		if (i > ssizeline && ssizeline == -1)
+		{
 			ssizeline = i;
+			recup->sizeline = ssizeline;
+		}
+		else if (i != recup->sizeline)
+			recup->line_len = -1;
 		snblines = snblines + 1;
 	}
 	recup->nblines = snblines;
-	recup->sizeline = ssizeline;
 }

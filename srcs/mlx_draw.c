@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 17:19:23 by user42            #+#    #+#             */
-/*   Updated: 2021/10/03 17:13:54 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/04 19:38:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	check_win(t_recup *recup)
 
 void	ft_mlx(t_recup *recup)
 {
-	ft_parsing_errors(recup);
+	ft_parsing_errors2(recup);
 	ft_mlx_init(recup);
 	ft_draw(recup);
 	mlx_loop_hook(recup->data.mlx_ptr, check_win, recup);

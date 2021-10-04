@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 15:44:10 by user42            #+#    #+#             */
-/*   Updated: 2021/10/03 16:05:08 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/04 19:38:32 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ typedef struct s_recup
 	char	exit;
 	int		nbr_exit;
 	t_coord	*coord_exit;
+	char	wrong_charac;
+	int		line_len;
+	int		empty_line;
 	int		nblines;
 	int		sizeline;
 	char	**map;
@@ -64,6 +67,7 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 void	ft_error(t_recup *recup, char *str);
 void	ft_parsing_errors(t_recup *recup);
+void	ft_parsing_errors2(t_recup *recup);
 void	ft_initialisation(t_recup *recup);
 int		get_next_line(int fd, char **line);
 void	ft_map(t_recup *recup, char *str);

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 14:13:23 by user42            #+#    #+#             */
-/*   Updated: 2021/10/01 16:24:21 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/04 19:25:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,9 @@ void	ft_initialisation(t_recup *recup)
 	recup->exit = 'x';
 	recup->nbr_exit = 0;
 	recup->coord_exit = 0;
+	recup->wrong_charac = 'x';
+	recup->line_len = 0;
+	recup->empty_line = 0;
 	recup->nblines = 0;
 	recup->sizeline = 0;
 	recup->map = NULL;
