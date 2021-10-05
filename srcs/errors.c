@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 13:16:10 by user42            #+#    #+#             */
-/*   Updated: 2021/10/04 19:38:04 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/05 19:42:12 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	ft_parsing_errors2(t_recup *recup)
 	if (recup->depart == 'x')
 		ft_error(recup, "Error\nNo player in the map\n");
 	if (recup->depart == 'B')
-		ft_error(recup, "Too many players in the map\n");
+		ft_error(recup, "Error\nToo many players in the map\n");
 	if (recup->wrong_charac == 'B')
-		ft_error(recup, "Bad character in the map\n");
+		ft_error(recup, "Error\nBad character in the map\n");
 	if (recup->coll == 'x')
 		ft_error(recup, "Error\nNo collectible in the map\n");
 	if (recup->exit == 'x')
